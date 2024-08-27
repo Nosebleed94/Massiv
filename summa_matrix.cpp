@@ -4,6 +4,7 @@
 #define COLUMNS 3
 
 void Sum_Mass (int *mass1, int *mass2,int *mass3, size_t sizey, size_t sizex);
+void Mass (int *mass3, size_t sizey, size_t sizex);
 
 int main ()
 {
@@ -19,6 +20,7 @@ int main ()
 
     int mass3 [LINES][COLUMNS] = {};
     Sum_Mass ((int*)mass1, (int*)mass2, (int*)mass3, LINES, COLUMNS); 
+    Mass ((int*)mass3, LINES, COLUMNS); 
     return 0;
 }
 
@@ -29,8 +31,20 @@ void Sum_Mass (int *mass1, int *mass2, int *mass3, size_t sizey, size_t sizex)
         for (int j = 0; j < sizex &&  j < sizex; j++)
         {
            *((int*)mass3 + sizex * i + j) = *((int*)mass1 + sizex * i + j) + *((int*)mass2 + sizex * i + j);
-            printf ("%d ", *((int*)mass1 + sizex * i + j) + *((int*)mass2 + sizex * i + j));
         }
-        printf("\n");
     }   
 }
+
+void Mass (int *mass3, size_t sizey, size_t sizex)
+{
+    int sum = 0;
+    for (int i = 0; i < sizey; i++)
+    {
+        for (int j = 0; j < sizex; j++ )
+        {
+            printf("%d ", *((int*)mass3 + sizex * i + j ));
+        }
+        printf ("\n");
+    }   
+}
+    
